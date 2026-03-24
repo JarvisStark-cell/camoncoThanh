@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cảm Ơn Cô Thanh - Trần Trọng Nguyễn</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@300;400;600;700&display=swap');
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: #0f172a; /* Dark elegant background */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .thank-you-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 2rem;
+            max-width: 550px;
+            width: 90%;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 10;
+        }
+
+        .handwriting { font-family: 'Dancing Script', cursive; }
+        
+        .success-badge {
+            background: #22c55e;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 9999px;
+            display: inline-flex;
+            align-items: center;
+            font-weight: 700;
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
+        }
+
+        .uii-blue { color: #003366; }
+
+        /* Floating Animation for Icons */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .float-icon { animation: float 3s ease-in-out infinite; }
+    </style>
+</head>
+<body>
+
+    <div class="thank-you-card animate__animated animate__backInUp">
+        <div class="success-badge animate__animated animate__pulse animate__infinite">
+            <i class="fas fa-check-circle mr-2"></i> ĐÃ HOÀN TẤT HỌC PHÍ
+        </div>
+
+        <h1 class="handwriting text-5xl uii-blue mb-6">Kính gửi Cô Thanh,</h1>
+        
+        <div class="space-y-6 text-gray-700 leading-relaxed text-lg">
+            <p>
+                Em là <strong>Trần Trọng Nguyễn</strong> (K49 – CĐMST). Em viết tấm thiệp này trong niềm vui và lòng biết ơn vô hạn khi đã <strong>thanh toán thành công học phí</strong> cho các học phần của mình.
+            </p>
+            
+            <p class="font-semibold text-gray-800 italic border-l-4 border-blue-800 pl-4">
+                "Em chân thành cảm ơn sự tận tình hướng dẫn, nỗ lực kết nối và sự thấu hiểu tuyệt vời của Cô đã giúp em giải quyết được nút thắt này ạ!"
+            </p>
+
+            <p>
+                Nếu không có những gợi ý kịp thời và sự hỗ trợ hết lòng từ Cô, em đã không thể giữ được tiến độ học tập quý giá này. Đây thực sự là một bài học lớn và cũng là động lực để em nỗ lực hơn nữa tại UII.
+            </p>
+        </div>
+
+        <div class="mt-10 pt-6 border-t border-gray-100 text-right">
+            <p class="text-gray-400 text-sm italic">Học trò của Cô,</p>
+            <p class="text-2xl font-bold uii-blue handwriting">Trần Trọng Nguyễn</p>
+            <p class="text-xs text-gray-400 uppercase tracking-widest mt-1">Institute of Innovation - UEH</p>
+        </div>
+
+        <button onclick="celebrate()" class="mt-8 bg-blue-900 text-white px-6 py-2 rounded-lg hover:bg-blue-800 transition-colors shadow-lg">
+            <i class="fas fa-sparkles mr-2"></i> Nhấn để cùng chia sẻ niềm vui!
+        </button>
+    </div>
+
+    <script>
+        // Automatic Celebration on Load
+        function celebrate() {
+            var count = 200;
+            var defaults = {
+                origin: { y: 0.7 },
+                zIndex: 999
+            };
+
+            function fire(particleRatio, opts) {
+                confetti({
+                    ...defaults,
+                    ...opts,
+                    particleCount: Math.floor(count * particleRatio)
+                });
+            }
+
+            fire(0.25, { spread: 26, startVelocity: 55 });
+            fire(0.2, { spread: 60 });
+            fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8 });
+            fire(0.1, { spread: 120, startVelocity: 25, decay: 0.92, scalar: 1.2 });
+            fire(0.1, { spread: 120, startVelocity: 45 });
+        }
+
+        // Trigger confetti when the page opens
+        window.onload = function() {
+            setTimeout(celebrate, 1000);
+        };
+    </script>
+</body>
+</html>
